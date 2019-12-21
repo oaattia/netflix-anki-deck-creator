@@ -12,7 +12,7 @@
   "content_scripts": [
     {
       "matches": [ "https://*.netflix.com/*" ],
-      "js": ["content.js"]
+      "js": ["content.js", "word-support.js"]
     }
   ],
   "background": {
