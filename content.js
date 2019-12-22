@@ -5,9 +5,12 @@ chrome.runtime.onMessage.addListener(
             var germanSub = document.getElementById("lln-subs").innerText;
             var alternativeSub = document.getElementById("lln-translations").innerText;
 
+            if(!germanSub && !alternativeSub) {
+                return;
+            }
+
             var xhr = new XMLHttpRequest();
             xhr.open('POST', 'http://127.0.0.1:8765');
-
             xhr.send(JSON.stringify({
                     "action": "guiAddCards",
                     "version": 6,
@@ -16,7 +19,7 @@ chrome.runtime.onMessage.addListener(
                             "deckName": "Deutschsatzen",
                             "modelName": "Cloze",
                             "fields": {
-                                "Text": germanSub + "\n" + alternativeSub,
+                                "Text": germanSub + '<br><br>' + alternativeSub,
                             },
                             "options": {
                                 "closeAfterAdding": false
@@ -31,3 +34,11 @@ chrome.runtime.onMessage.addListener(
         }
     }
 );
+
+
+// chrome.runtime.sendMessage({type: "notification", options: {
+//         type: "basic",
+//         iconUrl: chrome.extension.getURL("icon.png"),
+//         title: "Test",
+//         message: "Test"
+// }});
