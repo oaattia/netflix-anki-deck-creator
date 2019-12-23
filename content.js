@@ -19,7 +19,7 @@ chrome.runtime.onMessage.addListener(
                             "deckName": "Deutschsatzen",
                             "modelName": "Cloze",
                             "fields": {
-                                "Text": germanSub + '<br><br>' + alternativeSub,
+                                "Text": germanSub + '<br><br>' + '(' +alternativeSub + ')',
                             },
                             "options": {
                                 "closeAfterAdding": false
