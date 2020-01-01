@@ -6,12 +6,3 @@ chrome.browserAction.onClicked.addListener(function (tab) {
         chrome.tabs.sendMessage(activeTab.id, {"message": "clicked_browser_action"});
     });
 });
-
-
-// chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
-//     console.log(request);die;
-//     if (request.type == "notification") {
-//         chrome.notifications.create('id1', request.options, function() { });
-//     }
-//     sendResponse();
-// });

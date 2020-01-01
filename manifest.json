@@ -13,7 +13,7 @@
   "content_scripts": [
     {
       "matches": [ "https://*.netflix.com/*" ],
-      "js": ["content.js"]
+      "js": ["vendor/jquery-3.4.1.min.js","content.js"]
     }
   ],
   "background": {
