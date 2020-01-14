@@ -1,20 +1,16 @@
-var sentence = "Leider musste ich sie zurücklassen.";
+var sentence = "Abwechslung vom Müll auf Hendersons Schreibtisch.";
 
 var splittedString = sentence.split(" ");
 
-var http = new XMLHttpRequest();
-
 for(var wordToTranslate of splittedString) {
-
-    jQuery.get(
-        'https://www.dict.cc/',
-        {s: wordToTranslate},
-        function(data) {
-            // var html = jQuery(data).html();
-
+    $.ajax({
+        url: 'https://www.dict.cc/',
+        method: "GET",
+        data: { s : wordToTranslate },
+        crossDomain: true,
+        success: function (data) {
             console.log(data);
-
+            alert(data);
         }
-    )
-
+    });
 }
