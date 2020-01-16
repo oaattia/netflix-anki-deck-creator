@@ -1,49 +1,39 @@
-chrome.browserAction.onClicked.addListener(function (tab) {
-    chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
-        console.log(tabs);
-        var activeTab = tabs[0];
-        chrome.tabs.sendMessage(activeTab.id, {"message": "clicked_browser_action"});
-    });
+chrome.browserAction.onClicked.addListener(function(tab) {
+    if(tab.title === 'Netflix') {
+        chrome.notifications.create({
+            type: 'basic',
+            iconUrl: chrome.runtime.getURL('icon.png'),
+            title: 'User Update',
+            message: 'Dear User XYZ U have received an update',
+        });
+
+        chrome.tabs.sendMessage(tab.id, {action: 'getDictCcTranslation'});
+    }
 });
 
 chrome.runtime.onMessage.addListener(function(request, sender, callback) {
-    if(request.type == 'translationTextType') {
-        console.log('recieved the message from content js');
-        $.ajax({
-            url: 'http://deen.syn.dict.cc/',
-            method: "GET",
-            data: { s : request.germanSub },
-            success: function(data) {
-                console.log('got the data in phpstorm');
-                console.log(data);
-                // var parseURL=/communityRateInfo:"[^"]*"/.exec(data);
-                // var score = "?";
-                // if(parseURL !== null){
-                //     score = parseURL[0].replace(/.*"([^"]*)"/,'$1');
-                //     var storageID="filmweb_"+idNetflix;
-                //     saveScore(storageID, score, targetURL, v);
-                // }
-            }
-        });
+    if (request.action === 'sendSubtitle') {
+        let words = subtitle.getSplitted(request.subtitle);
+
+        for(let i=0; i < words.length; i++) {
+            $.ajax({
+                url: 'http://deen.syn.dict.cc/',
+                method: "GET",
+                data: {s: words[i]},
+                success: function (data) {
+                    let content = $(data);
+                    console.log(content.find('#tr1').first('.td7nl').text());
+
+                    // var parseURL=/communityRateInfo:"[^"]*"/.exec(data);
+    //             // var score = "?";
+    //             // if(parseURL !== null){
+    //             //     score = parseURL[0].replace(/.*"([^"]*)"/,'$1');
+    //             //     var storageID="filmweb_"+idNetflix;
+    //             //     saveScore(storageID, score, targetURL, v);
+    //             // }
+    //         }
+                }
+            });
+        }
     }
 });
-//
-// var germanSub = $('.player-timedtext-text-container').text();
-//
-// if(germanSub) {
-//     $.ajax({
-//         url: 'https://www.dict.cc/',
-//         method: "GET",
-//         data: { s : 'hallo' },
-//         success: function(data) {
-//             console.log(data);
-//             // var parseURL=/communityRateInfo:"[^"]*"/.exec(data);
-//             // var score = "?";
-//             // if(parseURL !== null){
-//             //     score = parseURL[0].replace(/.*"([^"]*)"/,'$1');
-//             //     var storageID="filmweb_"+idNetflix;
-//             //     saveScore(storageID, score, targetURL, v);
-//             // }
-//         }
-//     });
-// }
