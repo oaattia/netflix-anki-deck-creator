@@ -1,0 +1,25 @@
+{
+  "name": "netflix-chrome-test",
+  "version": "1.0.0",
+  "description": "### Requirements: - https://chrome.google.com/webstore/detail/language-learning-with-ne/hoombieeljmmljlkjmnheibnpciblicm?hl=en - ankiconnect (https://ankiweb.net/shared/info/2055492159) - and offcourse anki desktop app",
+  "main": "background.js",
+  "directories": {
+    "test": "tests"
+  },
+  "devDependencies": {
+    "jest": "^25.1.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oaattia/netflix-subtitles-grabber.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oaattia/netflix-subtitles-grabber/issues"
+  },
+  "homepage": "https://github.com/oaattia/netflix-subtitles-grabber#readme"
+}

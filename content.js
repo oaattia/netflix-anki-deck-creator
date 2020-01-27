@@ -1,6 +1,6 @@
 chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) {
-        if(request.action == 'getDictCcTranslation') {
+        if(request.action === 'getDictCcTranslation') {
             // get the german translation in this case
             let subtitle = $('.player-timedtext-text-container').text();
 
@@ -13,12 +13,12 @@ chrome.runtime.onMessage.addListener(
 );
 
 // Allows to monitor changes in DOM.
-var observer = new MutationObserver(function( mutations ) {   // based on https://gabrieleromanato.name/jquery-detecting-new-elements-with-the-mutationobserver-object/
-    mutations.forEach(function( mutation ) {
-        var newNodes = mutation.addedNodes; // DOM NodeList
+const observer = new MutationObserver(mutations => {
+    mutations.forEach(mutation => {
+        const newNodes = mutation.addedNodes; // DOM NodeList
         if( newNodes !== null ) { // If there are new nodes added
-            var nodes = $( newNodes ); // jQuery set
-            nodes.each(function() {
+            const nodes = $( newNodes ); // jQuery set
+            nodes.each(() => {
                 if($(this).attr('class') !== undefined) {
 
                 }
@@ -28,7 +28,7 @@ var observer = new MutationObserver(function( mutations ) {   // based on https:
 });
 
 // Configuration of the MutationObserver:
-var config = {
+const config = {
     childList: true,
     subtree: true,
     characterData: true
