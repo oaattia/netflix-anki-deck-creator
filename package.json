@@ -3,20 +3,25 @@
   "version": "1.0.0",
   "description": "### Requirements: - https://chrome.google.com/webstore/detail/language-learning-with-ne/hoombieeljmmljlkjmnheibnpciblicm?hl=en - ankiconnect (https://ankiweb.net/shared/info/2055492159) - and offcourse anki desktop app",
   "main": "background.js",
+  "scripts": {
+    "test": "jest --config=tests/jest.config.js"
+  },
   "directories": {
     "test": "tests"
   },
   "devDependencies": {
-    "jest": "^25.1.0"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "@types/chrome": "0.0.92",
+    "@types/jest": "24.9.0",
+    "@types/node": "13.1.8",
+    "jest": "^25.1.0",
+    "ts-jest": "^25.0.0",
+    "typescript": "3.7.5"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/oaattia/netflix-subtitles-grabber.git"
   },
-  "author": "",
+  "author": "Osama Attia",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/oaattia/netflix-subtitles-grabber/issues"
