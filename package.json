@@ -4,7 +4,8 @@
   "description": "### Requirements: - https://chrome.google.com/webstore/detail/language-learning-with-ne/hoombieeljmmljlkjmnheibnpciblicm?hl=en - ankiconnect (https://ankiweb.net/shared/info/2055492159) - and offcourse anki desktop app",
   "main": "background.js",
   "scripts": {
-    "test": "jest --config=tests/jest.config.js"
+    "test": "jest --config=tests/jest.config.js",
+    "build": "node src/tasks/build.js"
   },
   "directories": {
     "test": "tests"

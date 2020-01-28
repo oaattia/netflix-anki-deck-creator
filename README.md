@@ -1,5 +1,7 @@
 ## Chrome extension to grab netflix subtitles 
 
+### NEED TO BE UPDATE
+
 ### Requirements:
 - https://chrome.google.com/webstore/detail/language-learning-with-ne/hoombieeljmmljlkjmnheibnpciblicm?hl=en
 - ankiconnect (https://ankiweb.net/shared/info/2055492159)
