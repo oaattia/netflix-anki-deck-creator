@@ -1,7 +1,6 @@
 {
   "manifest_version": 2,
   "name": "Netflix Subtitles Grabber",
-  "permissions": ["notifications"],
   "version": "0.1",
   "browser_action": {
     "default_icon": "icon.png",
@@ -13,11 +12,19 @@
   "content_scripts": [
     {
       "matches": [ "https://*.netflix.com/*" ],
-      "js": ["content.js"]
+      "js": ["vendor/jquery.min.js","content.js"]
     }
   ],
   "background": {
-    "persistent": false,
-    "scripts": [ "background.js" ]
-  }
+    "scripts": [
+      "jquery.min.js",
+      "subtitle.js",
+      "background.js"
+    ]
+  },
+  "permissions": [
+    "notifications",
+    "tabs",
+    "http://*.syn.dict.cc/*"
+  ]
 }
