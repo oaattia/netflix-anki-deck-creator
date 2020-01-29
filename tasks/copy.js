@@ -7,6 +7,7 @@ let descDir = 'build';
 const paths = [
     'icon.png',
     'manifest.json',
+    'vendor/jquery.min.js',
 ].map((path) => `${baseDir}/${path}`);
 
 async function copy() {
@@ -24,4 +25,4 @@ async function copy() {
     }
 }
 
-copy();
+module.exports = copy;
