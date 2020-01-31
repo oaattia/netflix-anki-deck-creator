@@ -1,5 +1,5 @@
-import 'jquery';
 import {getSubtitle} from './split';
+import * as $ from 'jquery';
 
 export default class ChromeExtension {
     constructor() {
