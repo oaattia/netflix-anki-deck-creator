@@ -17,8 +17,7 @@
   ],
   "background": {
     "scripts": [
-      "jquery.min.js",
-      "subtitle.js",
+      "vendor/jquery.min.js",
       "background.js"
     ]
   },
